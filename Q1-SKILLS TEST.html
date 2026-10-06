@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1-SKILLS TEST</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Courier New', Courier, monospace;
+            color: #1e3a8a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 30px 20px;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(30, 58, 138, 0.2);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 440px;
+            padding: 25px 30px;
+            max-height: 85vh;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+  
+        .form-card::-webkit-scrollbar {
+            width: 5px;
+        }
+        .form-card::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 10px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            padding: 4px;
+            margin: 0 auto 10px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-section h1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e3a8a;
+            text-decoration: underline;
+            margin-bottom: 4px;
+        }
+
+        .header-section h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1d4ed8;
+        }
+
+        .header-section p {
+            font-size: 11px;
+            color: #475569;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #0f172a;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 15px;
+            font-size: 11px;
+            color: #334155;
+            align-items: center;
+            margin-top: 2px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        textarea {
+            resize: none;
+            height: 65px;
+        }
+
+        .info-section {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(203, 213, 225, 0.6);
+            font-size: 10.5px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        ul, ol {
+            padding-left: 18px;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        ol a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        ol a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 9px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            margin-top: 5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .robot-column {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 480px;
+        }
+
+        .robot-column img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(37, 99, 235, 0.4));
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 12px;
+            font-size: 10px;
+            color: #93c5fd;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .robot-column {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="form-card">
+            <div class="header-section">
+                <img src="https://cdn.discordapp.com/attachments/1067652022393905243/1551877472671498250/1789004299-2727-removebg-preview.png?ex=6ab39205&is=6ab24085&hm=0fd484bf6b9bfb2361d09a9b237fbc9af79eee2d5f4641a7854b920422f803ee&" 
+                     alt="O.B. Montessori Center Logo" 
+                     class="logo-img">
+                <h1>OBMC Robotics Club</h1>
+                <h2>Application Form</h2>
+                <p>Welcome! Please fill out this form to apply for our school's Robotics Club.</p>
+            </div>
+
+            <form id="appForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" placeholder="Juan Dela Cruz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="juan.delacruz@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gradeLevel">Grade Level:</label>
+                    <select id="gradeLevel" required>
+                        <option value="" disabled selected>Select Grade</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                        <option value="Grade 11">Grade 11</option>
+                        <option value="Grade 12">Grade 12</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label class="radio-option"><input type="radio" name="gender" value="Female" required> Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>What are your skills?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option"><input type="checkbox" name="skills" value="Coding"> Coding</label>
+                        <label class="checkbox-option"><input type="checkbox" name="skills" value="Design"> Design</label>
+                        <label class="checkbox-option"><input type="checkbox" name="skills" value="Electronics"> Electronics</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="motivation">Tell us why you want to join:</label>
+                    <textarea id="motivation" placeholder="Write a short statement..." required></textarea>
+                </div>
+
+                <div class="info-section">
+                    <div class="info-title">Top Robotics Activities We Offer:</div>
+                    <ul>
+                        <li>Line Following Robots</li>
+                        <li>Obstacle Avoidance Programming</li>
+                        <li>Light Following Robot</li>
+                    </ul>
+
+                    <div class="info-title">Helpful Links:</div>
+                    <ol>
+                        <li><a href="https://www.robotics.org" target="_blank">Robotics.org</a></li>
+                        <li><a href="https://www.firstinspires.org" target="_blank">FIRST Robotics</a></li>
+                    </ol>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+
+        <div class="robot-column">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" alt="AI Robot Assistant">
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Robotics Club Application | Created by Sophia Dayawon | 9 Emerald
+    </footer>
+
+    <script>
+        document.getElementById('appForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Application submitted successfully!');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
